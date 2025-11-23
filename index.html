@@ -1,0 +1,811 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CARS SERVICES | Premium Car Rental in Agadir</title>
+  <link rel="icon" type="image/png" href="img/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b1626;
+      --panel: #0f2438;
+      --accent: #f8c537;
+      --accent-2: #4cc9f0;
+      --text: #e8edf2;
+      --muted: #9fb3c8;
+      --card: rgba(255, 255, 255, 0.05);
+      --border: rgba(255, 255, 255, 0.09);
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+      --glow-1: rgba(248, 197, 55, 0.22);
+      --glow-2: rgba(76, 201, 240, 0.2);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: "Space Grotesk", system-ui, sans-serif;
+      background: radial-gradient(circle at 18% 18%, rgba(76, 201, 240, 0.08), transparent 32%),
+                  radial-gradient(circle at 78% 10%, rgba(248, 197, 55, 0.1), transparent 28%),
+                  linear-gradient(160deg, #0c1a2b 0%, #0a1321 40%, #0f1f33 100%);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+      transition: direction 0.3s ease;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+      background-size: 160px 160px, 160px 160px;
+      mask-image: radial-gradient(circle at 50% 18%, rgba(255,255,255,0.9), transparent 55%);
+      opacity: 0.35;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(14px);
+      background: rgba(12, 22, 35, 0.8);
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+    }
+
+    .container {
+      width: min(1180px, 92vw);
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    nav {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 16px;
+      padding: 18px 0;
+      position: relative;
+    }
+
+    nav::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -8px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(248,197,55,0.4), transparent);
+      opacity: 0.8;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    .logo-mark {
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      display: grid;
+      place-items: center;
+      color: #0b1523;
+      font-weight: 800;
+      box-shadow: 0 10px 30px rgba(248, 197, 55, 0.35);
+      position: relative;
+      overflow: hidden;
+      padding: 6px;
+    }
+
+    .logo-mark img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 8px;
+      display: block;
+      background: #0d1b2a;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      align-items: center;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-weight: 600;
+      transition: color 0.2s ease, transform 0.2s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible { color: var(--accent); transform: translateY(-2px); outline: none; }
+
+    .language-switch {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border);
+      padding: 6px;
+      border-radius: 12px;
+    }
+
+    .language-switch button {
+      border: none;
+      background: transparent;
+      color: var(--muted);
+      font-weight: 700;
+      padding: 8px 10px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .language-switch button.active {
+      background: linear-gradient(135deg, rgba(248,197,55,0.35), rgba(76,201,240,0.22));
+      color: #0b1523;
+      box-shadow: 0 12px 24px rgba(0,0,0,0.25);
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 18px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+      color: var(--text);
+      box-shadow: var(--shadow);
+      transition: transform 0.15s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+
+    .pill:hover,
+    .pill:focus-visible { transform: translateY(-2px); border-color: rgba(248,197,55,0.6); box-shadow: 0 15px 40px rgba(0,0,0,0.35); outline: none; }
+
+    .pill span { color: var(--accent); font-weight: 700; }
+
+    .hero {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 40px;
+      padding: 70px 0 60px;
+      align-items: center;
+      position: relative;
+    }
+
+    .hero h1 {
+      font-size: clamp(34px, 4vw, 56px);
+      line-height: 1.15;
+      margin-bottom: 18px;
+      letter-spacing: -1px;
+    }
+
+    .hero p { color: var(--muted); margin-bottom: 26px; max-width: 640px; }
+
+    .cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .btn {
+      padding: 14px 20px;
+      border-radius: 12px;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.2s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), #f5a524);
+      color: #0b1523;
+      box-shadow: 0 15px 40px rgba(248, 197, 55, 0.35);
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.02);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .btn:hover,
+    .btn:focus-visible { transform: translateY(-2px); outline: none; }
+
+    .btn-primary::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, rgba(255,255,255,0.35), transparent 45%);
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+
+    .btn-primary:hover::after { opacity: 0.6; }
+    .hero-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 18px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      isolation: isolate;
+    }
+
+    .hero-card img {
+      height: 100%;
+      width: 100%;
+      border-radius: 14px;
+      object-fit: cover;
+      transform: scale(1);
+      transition: transform 0.8s ease;
+    }
+
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(12,22,35,0) 60%, rgba(12,22,35,0.55) 100%);
+      border-radius: 18px;
+      z-index: 1;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 18px;
+      padding: 2px;
+      background: linear-gradient(135deg, rgba(248,197,55,0.5), rgba(76,201,240,0.45));
+      mask: linear-gradient(#000, #000) content-box, linear-gradient(#000, #000);
+      mask-composite: exclude;
+      opacity: 0.6;
+    }
+
+    .hero-card:hover img { transform: scale(1.03); }
+
+    .floating-tag {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      background: rgba(11, 21, 35, 0.8);
+      padding: 10px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      z-index: 2;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 10px 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(248,197,55,0.45);
+      color: var(--accent);
+      font-weight: 700;
+      background: linear-gradient(120deg, rgba(248,197,55,0.18), rgba(76,201,240,0.12));
+      margin-bottom: 12px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+    }
+
+    section { padding: 40px 0 16px; scroll-margin-top: 90px; }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+
+    .section-header h2 { font-size: clamp(26px, 3vw, 36px); letter-spacing: -0.5px; }
+
+    .grid { display: grid; gap: 18px; }
+    .grid-3 { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+    .grid-2 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 16px;
+      box-shadow: var(--shadow);
+      transition: transform 0.15s ease, border-color 0.2s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card:hover { transform: translateY(-4px); border-color: rgba(248, 197, 55, 0.5); }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(500px 200px at 10% 0%, rgba(248,197,55,0.05), transparent),
+                  radial-gradient(300px 120px at 90% 0%, rgba(76,201,240,0.05), transparent);
+      opacity: 0.8;
+      pointer-events: none;
+    }
+
+    .fleet-img { border-radius: 12px; margin-bottom: 12px; height: 180px; object-fit: cover; }
+    .card h3 { margin-bottom: 6px; }
+    .muted { color: var(--muted); font-size: 0.95rem; }
+
+    .pill-set { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+    .pill-set span { background: rgba(255,255,255,0.05); border: 1px solid var(--border); padding: 6px 10px; border-radius: 10px; font-size: 0.9rem; color: var(--muted); }
+
+    .price { font-weight: 700; color: var(--accent); font-size: 1.1rem; }
+
+    .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
+    .feature { padding: 14px; border: 1px solid var(--border); border-radius: 14px; background: rgba(255,255,255,0.03); display: grid; gap: 6px; }
+    .feature strong { color: var(--accent); }
+
+    .form { display: grid; gap: 12px; }
+    .form-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+    label { font-weight: 700; font-size: 0.95rem; letter-spacing: -0.2px; }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 12px;
+      margin-top: 6px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text);
+      font-size: 1rem;
+      outline: none;
+    }
+
+    input:focus-visible, select:focus-visible, textarea:focus-visible { border-color: rgba(248,197,55,0.7); box-shadow: 0 0 0 3px rgba(248,197,55,0.18); }
+
+    textarea { min-height: 110px; resize: vertical; }
+
+    .how { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+    .step { padding: 14px; background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 14px; display: grid; gap: 6px; }
+    .step-number { width: 36px; height: 36px; border-radius: 10px; background: rgba(248,197,55,0.12); color: var(--accent); display: grid; place-items: center; font-weight: 700; }
+
+    .map-card iframe { border: none; width: 100%; height: 240px; border-radius: 12px; }
+
+    footer { padding: 32px 0 42px; margin-top: 30px; border-top: 1px solid var(--border); background: rgba(12, 22, 35, 0.7); }
+    .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px; }
+
+    .stat-band { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 20px; }
+    .stat { padding: 12px 14px; border-radius: 12px; border: 1px solid var(--border); background: rgba(255,255,255,0.04); display: grid; gap: 4px; min-width: 170px; }
+    .stat strong { font-size: 1.2rem; color: var(--accent); }
+
+    .mobile-toggle { display: none; background: transparent; border: 1px solid var(--border); color: var(--text); padding: 8px 12px; border-radius: 10px; font-weight: 700; }
+
+    .glow { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.9; z-index: 0; pointer-events: none; }
+    .glow-1 { width: 340px; height: 340px; background: var(--glow-1); top: 120px; left: -120px; }
+    .glow-2 { width: 300px; height: 300px; background: var(--glow-2); top: 240px; right: -80px; }
+    .glow-3 { width: 260px; height: 260px; background: rgba(255,255,255,0.08); bottom: 120px; left: 30%; }
+
+    body.rtl { direction: rtl; }
+    body.rtl .nav-links { justify-content: flex-start; }
+    body.rtl .logo { flex-direction: row-reverse; }
+    body.rtl .cta-group { flex-direction: row-reverse; }
+    body.rtl .section-header { text-align: right; }
+    body.rtl .hero { text-align: right; }
+    body.rtl .footer-grid { text-align: right; }
+
+    @media (max-width: 1024px) { nav { grid-template-columns: auto auto 1fr; } }
+    @media (max-width: 900px) { nav { grid-template-columns: 1fr auto; grid-template-areas: "logo controls" "links links"; } .logo { grid-area: logo; } .nav-links { grid-area: links; width: 100%; justify-content: flex-start; flex-wrap: wrap; } }
+    @media (max-width: 720px) { .nav-links { display: none; } .nav-links.open { display: flex; flex-direction: column; width: 100%; } .mobile-toggle { display: inline-flex; } nav { grid-template-columns: auto auto; } .hero { padding-top: 38px; } }
+    @media (max-width: 540px) { .hero { gap: 26px; } .hero-card { order: -1; } .section-header { gap: 10px; } }
+    @media (prefers-reduced-motion: reduce) { * { animation-duration: 0ms !important; transition-duration: 0ms !important; } }
+  </style>
+</head>
+<body>
+  <div class="glow glow-1"></div>
+  <div class="glow glow-2"></div>
+  <div class="glow glow-3"></div>
+  <header>
+    <div class="container">
+      <nav>
+        <a class="logo" href="#top">
+          <span class="logo-mark"><img src="img/logo.png" alt="CARS SERVICES logo"></span>
+          <span>CARS SERVICES</span>
+        </a>
+        <div class="language-switch" aria-label="Language selector">
+          <button type="button" class="lang-btn active" data-lang="en">EN</button>
+          <button type="button" class="lang-btn" data-lang="fr">FR</button>
+          <button type="button" class="lang-btn" data-lang="ar">AR</button>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px; justify-content:flex-end;">
+          <button class="mobile-toggle" aria-label="Toggle navigation">Menu</button>
+          <div class="nav-links">
+            <a href="#fleet" data-i18n="navFleet">Fleet</a>
+            <a href="#booking" data-i18n="navBooking">Book</a>
+            <a href="#services" data-i18n="navServices">Services</a>
+            <a href="#location" data-i18n="navLocation">Location</a>
+            <a class="pill" href="tel:+212661616161">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.8 19.8 0 0 1 3.11 5.18 2 2 0 0 1 5.1 3h3a1 1 0 0 1 1 .75 12.8 12.8 0 0 0 .7 2.22 1 1 0 0 1-.23 1L8.09 8.91a16 16 0 0 0 7 7l1.94-1.48a1 1 0 0 1 1-.12 12.8 12.8 0 0 0 2.22.7 1 1 0 0 1 .75 1z"/>
+              </svg>
+              <span data-i18n="navBookNow">Book now</span>
+            </a>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <div class="container hero">
+      <div>
+        <div class="badge" data-i18n="badgeHero">Premium car rental in Agadir</div>
+        <h1 data-i18n="heroTitle">Arrive in style with curated vehicles and concierge service.</h1>
+        <p data-i18n="heroDesc">CARS SERVICES delivers seamless rentals, airport drop-offs, and dedicated support across Agadir. Reserve in minutes and drive away with confidence.</p>
+        <div class="cta-group">
+          <a class="btn btn-primary" href="#booking" data-i18n="ctaReserve">Reserve your car</a>
+          <a class="btn btn-secondary" href="#fleet" data-i18n="ctaFleet">View our fleet</a>
+        </div>
+        <div class="stat-band">
+          <div class="stat">
+            <strong>24/7</strong>
+            <span class="muted" data-i18n="statSupport">Concierge support</span>
+          </div>
+          <div class="stat">
+            <strong>Agadir</strong>
+            <span class="muted" data-i18n="statAddress">2 BIS AV. DU PRÉSIDENT KENNEDY</span>
+          </div>
+          <div class="stat">
+            <strong>D-U-N-S (R)</strong>
+            <span class="muted" data-i18n="statDuns">354021609</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-card">
+        <span class="floating-tag" data-i18n="floatingTag">Concierge delivery</span>
+        <img src="img/erik-mclean-TIEQiPp3e9A-unsplash.jpg" alt="Luxury sedan ready for rental">
+      </div>
+    </div>
+
+    <section id="fleet">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <div class="badge" data-i18n="fleetBadge">Our fleet</div>
+            <h2 data-i18n="fleetTitle">Pick the right vehicle for every trip.</h2>
+          </div>
+          <p class="muted" data-i18n="fleetCopy">Clean interiors, full insurance, and flexible mileage. Ask for airport delivery or city pick-up.</p>
+        </div>
+        <div class="grid grid-3">
+          <div class="card">
+            <img class="fleet-img" src="img/peter-broomfield-m3m-lnR90uM-unsplash.jpg" alt="Executive sedan">
+            <h3 data-i18n="car1Title">Executive Sedan</h3>
+            <div class="muted" data-i18n="car1Desc">Comfortable and refined for business travel.</div>
+            <div class="pill-set">
+              <span data-i18n="car1Feat1">Leather seats</span><span data-i18n="car1Feat2">GPS</span><span data-i18n="car1Feat3">Automatic</span>
+            </div>
+            <div class="price" data-i18n="car1Price">From 690 MAD / day</div>
+          </div>
+          <div class="card">
+            <img class="fleet-img" src="img/erik-mclean-2ss_N6Rpg6o-unsplash.jpg" alt="SUV rental">
+            <h3 data-i18n="car2Title">City SUV</h3>
+            <div class="muted" data-i18n="car2Desc">Spacious and agile for family weekends and coastal drives.</div>
+            <div class="pill-set">
+              <span data-i18n="car2Feat1">5 seats</span><span data-i18n="car2Feat2">Spacious trunk</span><span data-i18n="car2Feat3">Bluetooth</span>
+            </div>
+            <div class="price" data-i18n="car2Price">From 850 MAD / day</div>
+          </div>
+          <div class="card">
+            <img class="fleet-img" src="img/robin-le-mee-eIze9Hh0gkk-unsplash.jpg" alt="Sport car rental">
+            <h3 data-i18n="car3Title">Sport Line</h3>
+            <div class="muted" data-i18n="car3Desc">Bold styling with responsive performance for memorable arrivals.</div>
+            <div class="pill-set">
+              <span data-i18n="car3Feat1">Sport pack</span><span data-i18n="car3Feat2">Premium audio</span><span data-i18n="car3Feat3">Driver assist</span>
+            </div>
+            <div class="price" data-i18n="car3Price">From 1200 MAD / day</div>
+          </div>
+          <div class="card">
+            <img class="fleet-img" src="img/markus-spiske-IS5ypTDKZSk-unsplash.jpg" alt="Luxury SUV">
+            <h3 data-i18n="car4Title">Luxury SUV</h3>
+            <div class="muted" data-i18n="car4Desc">High clearance and comfort for Atlas getaways.</div>
+            <div class="pill-set">
+              <span data-i18n="car4Feat1">AWD</span><span data-i18n="car4Feat2">Panoramic roof</span><span data-i18n="car4Feat3">Driver assist</span>
+            </div>
+            <div class="price" data-i18n="car4Price">From 1300 MAD / day</div>
+          </div>
+          <div class="card">
+            <img class="fleet-img" src="img/norbert-buduczki-ofJFxpaXv1w-unsplash.jpg" alt="Cabriolet rental">
+            <h3 data-i18n="car5Title">Cabriolet</h3>
+            <div class="muted" data-i18n="car5Desc">Enjoy Agadir sunshine with open-top elegance.</div>
+            <div class="pill-set">
+              <span data-i18n="car5Feat1">Convertible</span><span data-i18n="car5Feat2">Automatic</span><span data-i18n="car5Feat3">Premium finish</span>
+            </div>
+            <div class="price" data-i18n="car5Price">From 1400 MAD / day</div>
+          </div>
+          <div class="card">
+            <img class="fleet-img" src="img/campbell-3ZUsNJhi_Ik-unsplash.jpg" alt="Eco car">
+            <h3 data-i18n="car6Title">Eco Compact</h3>
+            <div class="muted" data-i18n="car6Desc">Efficient and easy to park for city errands.</div>
+            <div class="pill-set">
+              <span data-i18n="car6Feat1">Low consumption</span><span data-i18n="car6Feat2">Compact</span><span data-i18n="car6Feat3">Bluetooth</span>
+            </div>
+            <div class="price" data-i18n="car6Price">From 450 MAD / day</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <div class="badge" data-i18n="servicesBadge">Services</div>
+            <h2 data-i18n="servicesTitle">Concierge-first car rental, end to end.</h2>
+          </div>
+          <p class="muted" data-i18n="servicesCopy">Airport delivery, flexible returns, and tailored add-ons built for travelers and locals alike.</p>
+        </div>
+        <div class="grid grid-2">
+          <div class="card">
+            <h3 data-i18n="whyTitle">Why choose CARS SERVICES</h3>
+            <div class="features">
+              <div class="feature"><strong data-i18n="feature1Title">24/7 support</strong><span class="muted" data-i18n="feature1Text">On-call assistance in English, French, and Arabic.</span></div>
+              <div class="feature"><strong data-i18n="feature2Title">Clean and insured</strong><span class="muted" data-i18n="feature2Text">Sanitized vehicles with comprehensive cover.</span></div>
+              <div class="feature"><strong data-i18n="feature3Title">Airport handoff</strong><span class="muted" data-i18n="feature3Text">Meet-and-greet at AGA or hotel doorstep.</span></div>
+              <div class="feature"><strong data-i18n="feature4Title">Transparent pricing</strong><span class="muted" data-i18n="feature4Text">Clear rates. Mileage options to fit your trip.</span></div>
+            </div>
+          </div>
+          <div class="card">
+            <h3 data-i18n="howTitle">How it works</h3>
+            <div class="how">
+              <div class="step">
+                <span class="step-number">1</span>
+                <strong data-i18n="step1Title">Choose your car</strong>
+                <span class="muted" data-i18n="step1Text">Browse the fleet and pick extras like child seats or Wi-Fi.</span>
+              </div>
+              <div class="step">
+                <span class="step-number">2</span>
+                <strong data-i18n="step2Title">Set pickup and drop</strong>
+                <span class="muted" data-i18n="step2Text">Airport, hotel, or office at 2 BIS AV. DU PRÉSIDENT KENNEDY.</span>
+              </div>
+              <div class="step">
+                <span class="step-number">3</span>
+                <strong data-i18n="step3Title">We deliver</strong>
+                <span class="muted" data-i18n="step3Text">A concierge hands you the keys, validates ID, and briefs features.</span>
+              </div>
+              <div class="step">
+                <span class="step-number">4</span>
+                <strong data-i18n="step4Title">Drive with support</strong>
+                <span class="muted" data-i18n="step4Text">Roadside assistance and itinerary help whenever you need it.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="booking">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <div class="badge" data-i18n="bookingBadge">Book your car</div>
+            <h2 data-i18n="bookingTitle">Tell us your dates - we confirm within minutes.</h2>
+          </div>
+          <p class="muted" data-i18n="bookingCopy">Prefer a call? Dial +212 6 61 61 61 61 and speak with our concierge.</p>
+        </div>
+        <div class="grid grid-2">
+          <div class="card">
+            <form class="form">
+              <div class="form-row">
+                <div>
+                  <label for="pickup" data-i18n="pickupLabel">Pickup date</label>
+                  <input type="date" id="pickup" name="pickup">
+                </div>
+                <div>
+                  <label for="dropoff" data-i18n="dropoffLabel">Drop-off date</label>
+                  <input type="date" id="dropoff" name="dropoff">
+                </div>
+              </div>
+              <div class="form-row">
+                <div>
+                  <label for="location" data-i18n="locationLabel">Pickup location</label>
+                  <select id="location" name="location">
+                    <option data-i18n="locOption1">Agadir Al Massira Airport</option>
+                    <option data-i18n="locOption2">2 BIS AV. DU PRÉSIDENT KENNEDY</option>
+                    <option data-i18n="locOption3">Hotel delivery</option>
+                    <option data-i18n="locOption4">Custom address</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="car" data-i18n="carLabel">Vehicle preference</label>
+                  <select id="car" name="car">
+                    <option data-i18n="carOption1">Executive Sedan</option>
+                    <option data-i18n="carOption2">City SUV</option>
+                    <option data-i18n="carOption3">Sport Line</option>
+                    <option data-i18n="carOption4">Luxury SUV</option>
+                    <option data-i18n="carOption5">Cabriolet</option>
+                    <option data-i18n="carOption6">Eco Compact</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-row">
+                <div>
+                  <label for="name" data-i18n="nameLabel">Full name</label>
+                  <input type="text" id="name" name="name" placeholder="Your full name" data-i18n-placeholder="namePlaceholder">
+                </div>
+                <div>
+                  <label for="phone" data-i18n="phoneLabel">Phone / WhatsApp</label>
+                  <input type="tel" id="phone" name="phone" placeholder="+212 ..." data-i18n-placeholder="phonePlaceholder">
+                </div>
+              </div>
+              <div>
+                <label for="notes" data-i18n="notesLabel">Notes and extras</label>
+                <textarea id="notes" name="notes" placeholder="Flight number, child seats, driver request..." data-i18n-placeholder="notesPlaceholder"></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary" data-i18n="formSubmit">Send booking request</button>
+            </form>
+          </div>
+          <div class="card map-card" id="location">
+            <h3 data-i18n="visitTitle">Visit us in Agadir</h3>
+            <p class="muted" data-i18n="visitCopy">2 BIS AVENUE DU PRÉSIDENT KENNEDY, 80000 AGADIR</p>
+            <p class="muted" data-i18n="visitCompany">Company: CARS SERVICES | D-U-N-S (R) Number: 354021609</p>
+            <div style="margin: 14px 0;">
+              <iframe title="CARS SERVICES location" src="https://www.google.com/maps?q=2%20BIS%20AVENUE%20DU%20PRESIDENT%20KENNEDY%20AGADIR&output=embed"></iframe>
+            </div>
+            <a class="btn btn-secondary" href="https://maps.app.goo.gl/rHZqTNTyxKMwePFVA" target="_blank" rel="noopener" data-i18n="openMaps">Open in Google Maps</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="stories">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <div class="badge" data-i18n="storiesBadge">Guest stories</div>
+            <h2 data-i18n="storiesTitle">Travelers trust our attention to detail.</h2>
+          </div>
+          <p class="muted" data-i18n="storiesCopy">From city breaks to coastal escapes, we handle the driving experience.</p>
+        </div>
+        <div class="grid grid-3">
+          <div class="card">
+            <p data-i18n="quote1">"Airport drop-off was right on time and the car felt brand new. They even loaded our boards."</p>
+            <div class="muted" data-i18n="quote1Name">- Salma, Casablanca</div>
+          </div>
+          <div class="card">
+            <p data-i18n="quote2">"Clear pricing, fast paperwork, and concierge check-in at the hotel. I recommend their SUVs."</p>
+            <div class="muted" data-i18n="quote2Name">- Thomas, Lyon</div>
+          </div>
+          <div class="card">
+            <p data-i18n="quote3">"They tracked our delayed flight and waited. Support answered instantly when we asked for tips."</p>
+            <div class="muted" data-i18n="quote3Name">- Amina and Youssef, Rabat</div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="cta">
+      <div class="container">
+        <div class="card">
+          <div class="section-header">
+            <div>
+              <div class="badge" data-i18n="ctaBadge">Ready to drive?</div>
+              <h2 data-i18n="ctaTitle">Book your car today and enjoy concierge delivery in Agadir.</h2>
+            </div>
+            <div class="cta-group">
+              <a class="btn btn-primary" href="#booking" data-i18n="ctaButtonPrimary">Start your booking</a>
+              <a class="btn btn-secondary" href="mailto:contact@cars-services.ma" data-i18n="ctaButtonSecondary">Email our team</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <div class="logo">
+          <span class="logo-mark"><img src="img/logo.png" alt="CARS SERVICES logo small"></span>
+          <span>CARS SERVICES</span>
+        </div>
+        <p class="muted" style="margin-top: 10px;" data-i18n="footerCopy">Premium car rental and concierge delivery in Agadir. Vehicles you want, service you expect.</p>
+      </div>
+      <div>
+        <strong data-i18n="contactTitle">Contact</strong>
+        <p class="muted" data-i18n="contactPhone">Phone: +212 6 61 61 61 61</p>
+        <p class="muted" data-i18n="contactEmail">Email: contact@cars-services.ma</p>
+        <p class="muted" data-i18n="contactAddress">2 BIS AVENUE DU PRÉSIDENT KENNEDY, 80000 AGADIR</p>
+      </div>
+      <div>
+        <strong data-i18n="companyTitle">Company</strong>
+        <p class="muted" data-i18n="companyDuns">D-U-N-S (R) Number: 354021609</p>
+        <p class="muted" data-i18n="companyHours">Open 24/7</p>
+        <p class="muted"><a href="https://maps.app.goo.gl/rHZqTNTyxKMwePFVA" target="_blank" rel="noopener" data-i18n="findMaps">Find us on Google Maps</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.querySelector('.mobile-toggle');
+    const links = document.querySelector('.nav-links');
+    toggle?.addEventListener('click', () => {
+      links.classList.toggle('open');
+      const isOpen = links.classList.contains('open');
+      toggle.textContent = isOpen ? 'Close' : 'Menu';
+      toggle.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    const translationsUrl = 'translations.json';
+    let translations = {};
+    let currentLang = 'en';
+    const fallbackAlert = 'Thank you! A concierge will confirm your booking shortly.';
+    const rtlLanguages = ['ar'];
+    const langButtons = document.querySelectorAll('.lang-btn');
+
+    function applyTranslations(lang) {
+      const dict = translations[lang];
+      if (!dict) return;
+      currentLang = lang;
+      const isRtl = rtlLanguages.includes(lang);
+      document.documentElement.lang = lang;
+      document.documentElement.dir = isRtl ? 'rtl' : 'ltr';
+      document.body.classList.toggle('rtl', isRtl);
+
+      document.querySelectorAll('[data-i18n]').forEach((el) => {
+        const key = el.dataset.i18n;
+        if (dict[key]) el.textContent = dict[key];
+      });
+
+      document.querySelectorAll('[data-i18n-placeholder]').forEach((el) => {
+        const key = el.dataset.i18nPlaceholder;
+        if (dict[key]) el.placeholder = dict[key];
+      });
+    }
+
+    langButtons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        langButtons.forEach((b) => b.classList.remove('active'));
+        btn.classList.add('active');
+        applyTranslations(btn.dataset.lang);
+      });
+    });
+
+    fetch(translationsUrl)
+      .then((res) => res.json())
+      .then((data) => {
+        translations = data;
+        applyTranslations(currentLang);
+      })
+      .catch((err) => console.error('Translation load error', err));
+
+    document.querySelector('.form')?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const message = translations[currentLang]?.alertBooking || fallbackAlert;
+      alert(message);
+    });
+  </script>
+</body>
+</html>
