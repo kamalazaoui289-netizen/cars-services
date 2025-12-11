@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Privacy Policy - CARS SERVICES</title>
+    <meta name="robots" content="noindex,nofollow">
+
+    <style>
+        :root{
+            --bg:#050816;
+            --bg-soft:#0b1220;
+            --card:#0f172a;
+            --card-soft:#111827;
+            --accent:#0ea5e9;
+            --accent-soft:#22c1c3;
+            --accent-strong:#0891b2;
+            --ink:#e5e7eb;
+            --muted:#9ca3af;
+            --border:#1f2937;
+        }
+
+        *{
+            box-sizing:border-box;
+            margin:0;
+            padding:0;
+        }
+
+        body{
+            min-height:100vh;
+            padding:32px 16px;
+            font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+            background:
+                radial-gradient(circle at 0% 0%, rgba(34,193,195,.22), transparent 55%),
+                radial-gradient(circle at 100% 100%, rgba(15,118,110,.25), transparent 55%),
+                var(--bg);
+            color:var(--ink);
+            display:flex;
+            align-items:flex-start;
+            justify-content:center;
+        }
+
+        .shell{
+            width:100%;
+            max-width:980px;
+        }
+
+        .sheet{
+            background:linear-gradient(145deg,var(--card-soft),#020617);
+            border-radius:28px;
+            border:1px solid rgba(148,163,184,.35);
+            box-shadow:
+                0 24px 70px rgba(15,23,42,.85),
+                0 0 0 1px rgba(15,118,110,.25);
+            overflow:hidden;
+        }
+
+        .sheet-header{
+            position:relative;
+            padding:26px 28px 20px;
+            border-bottom:1px solid rgba(31,41,55,.9);
+            background:
+                radial-gradient(circle at 10% -10%, rgba(56,189,248,.25), transparent 55%),
+                radial-gradient(circle at 90% 0%, rgba(45,212,191,.23), transparent 55%),
+                linear-gradient(135deg,#020617,#020617 60%,#020617);
+        }
+
+        .top-row{
+            display:flex;
+            flex-wrap:wrap;
+            gap:16px;
+            align-items:center;
+            justify-content:space-between;
+        }
+
+        .brand{
+            display:flex;
+            align-items:center;
+            gap:14px;
+        }
+
+        .logo-circle{
+            width:42px;
+            height:42px;
+            border-radius:50%;
+            border:2px solid rgba(56,189,248,.8);
+            background:radial-gradient(circle at 30% 0%,#e0f2fe,#0369a1);
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            font-size:1.1rem;
+            font-weight:700;
+            color:#0b1120;
+            box-shadow:0 0 26px rgba(56,189,248,.7);
+        }
+
+        .brand-text-title{
+            font-size:.95rem;
+            letter-spacing:.16em;
+            text-transform:uppercase;
+            color:rgba(226,232,240,.9);
+        }
+
+        .brand-text-sub{
+            font-size:.8rem;
+            color:var(--muted);
+        }
+
+        .badge{
+            display:inline-flex;
+            align-items:center;
+            gap:8px;
+            padding:6px 14px;
+            border-radius:999px;
+            font-size:.78rem;
+            text-transform:uppercase;
+            letter-spacing:.16em;
+            color:var(--accent);
+            background:rgba(15,23,42,.8);
+            border:1px solid rgba(56,189,248,.5);
+            backdrop-filter:blur(14px);
+        }
+
+        .badge-dot{
+            width:7px;
+            height:7px;
+            border-radius:50%;
+            background:radial-gradient(circle at 30% 30%,#a5f3fc,#0ea5e9);
+            box-shadow:0 0 10px rgba(34,211,238,.8);
+        }
+
+        h1{
+            margin-top:18px;
+            font-size:1.9rem;
+            letter-spacing:.04em;
+            color:#e5f4ff;
+        }
+
+        .subtitle{
+            margin-top:6px;
+            font-size:.9rem;
+            color:var(--muted);
+        }
+
+        .meta-row{
+            margin-top:16px;
+            display:flex;
+            flex-wrap:wrap;
+            gap:12px;
+            font-size:.78rem;
+            color:var(--muted);
+        }
+
+        .pill{
+            padding:5px 11px;
+            border-radius:999px;
+            border:1px solid rgba(148,163,184,.5);
+            background:rgba(15,23,42,.9);
+            display:inline-flex;
+            align-items:center;
+            gap:6px;
+        }
+
+        .pill span:first-child{
+            width:8px;
+            height:8px;
+            border-radius:999px;
+            background:radial-gradient(circle at 30% 30%,#bbf7d0,#22c55e);
+            box-shadow:0 0 8px rgba(34,197,94,.8);
+        }
+
+        .sheet-body{
+            display:grid;
+            grid-template-columns:260px minmax(0,1fr);
+            gap:0;
+        }
+
+        /* Sidebar */
+        .sidebar{
+            padding:22px 20px 24px;
+            border-right:1px solid rgba(30,64,175,.35);
+            background:radial-gradient(circle at 0 0,rgba(59,130,246,.25),transparent 60%), #020617;
+        }
+
+        .sidebar-title{
+            font-size:.78rem;
+            text-transform:uppercase;
+            letter-spacing:.18em;
+            color:var(--muted);
+            margin-bottom:10px;
+        }
+
+        .toc{
+            list-style:none;
+        }
+
+        .toc li{
+            margin:3px 0;
+        }
+
+        .toc a{
+            display:flex;
+            align-items:center;
+            gap:10px;
+            padding:7px 9px;
+            border-radius:10px;
+            font-size:.82rem;
+            text-decoration:none;
+            color:var(--muted);
+            border:1px solid transparent;
+            transition:.18s ease;
+        }
+
+        .toc a span.idx{
+            display:inline-flex;
+            align-items:center;
+            justify-content:center;
+            width:18px;
+            height:18px;
+            border-radius:8px;
+            font-size:.7rem;
+            background:rgba(15,23,42,.9);
+            border:1px solid rgba(148,163,184,.5);
+            color:rgba(226,232,240,.88);
+        }
+
+        .toc a:hover{
+            border-color:rgba(56,189,248,.8);
+            background:radial-gradient(circle at 0 0,rgba(56,189,248,.25),transparent 60%);
+            color:#e5f4ff;
+        }
+
+        .sidebar-footer{
+            margin-top:20px;
+            padding-top:14px;
+            border-top:1px dashed rgba(75,85,99,.7);
+            font-size:.76rem;
+            color:var(--muted);
+        }
+
+        .sidebar-footer strong{
+            color:var(--accent);
+            font-weight:500;
+        }
+
+        /* Main content */
+        .content{
+            padding:26px 28px 26px;
+            background:radial-gradient(circle at 100% 100%,rgba(8,47,73,.6),transparent 60%), #020617;
+        }
+
+        section{
+            margin-bottom:24px;
+            padding:18px 18px 16px;
+            border-radius:16px;
+            background:rgba(15,23,42,.88);
+            border:1px solid rgba(30,64,175,.45);
+            box-shadow:0 16px 40px rgba(15,23,42,.7);
+        }
+
+        section:nth-of-type(1){
+            border-color:rgba(56,189,248,.7);
+        }
+
+        section h2{
+            margin:0 0 10px;
+            font-size:1.05rem;
+            color:var(--accent-soft);
+            display:flex;
+            align-items:center;
+            gap:8px;
+        }
+
+        section h2::before{
+            content:"";
+            width:9px;
+            height:9px;
+            border-radius:999px;
+            background:radial-gradient(circle at 30% 30%,#bae6fd,#0ea5e9);
+            box-shadow:0 0 10px rgba(56,189,248,.9);
+        }
+
+        p,li{
+            margin:7px 0;
+            font-size:.9rem;
+            color:var(--muted);
+        }
+
+        p strong{
+            color:#e5f4ff;
+            font-weight:600;
+        }
+
+        ul{
+            margin:6px 0 4px;
+            padding-left:18px;
+        }
+
+        li{
+            position:relative;
+        }
+
+        li::marker{
+            color:var(--accent-soft);
+        }
+
+        a{
+            color:var(--accent-soft);
+            text-decoration:none;
+        }
+
+        a:hover{
+            text-decoration:underline;
+        }
+
+        .chips-row{
+            display:flex;
+            flex-wrap:wrap;
+            gap:6px;
+            margin-top:4px;
+        }
+
+        .chip{
+            padding:3px 8px;
+            border-radius:999px;
+            border:1px solid rgba(148,163,184,.6);
+            font-size:.78rem;
+            color:var(--muted);
+        }
+
+        .contact-block{
+            display:grid;
+            grid-template-columns:minmax(0,1fr);
+            gap:4px;
+            font-size:.9rem;
+        }
+
+        .contact-block br{
+            display:none;
+        }
+
+        .footer-note{
+            margin-top:12px;
+            font-size:.78rem;
+            color:#6b7280;
+            text-align:right;
+        }
+
+        /* Responsive */
+        @media (max-width:860px){
+            .sheet-body{
+                grid-template-columns:1fr;
+            }
+            .sidebar{
+                border-right:none;
+                border-bottom:1px solid rgba(30,64,175,.4);
+            }
+        }
+
+        @media (max-width:640px){
+            body{
+                padding:18px 10px;
+            }
+            .sheet{
+                border-radius:22px;
+            }
+            .sheet-header{
+                padding:20px 18px 18px;
+            }
+            .content{
+                padding:20px 18px 20px;
+            }
+            h1{
+                font-size:1.5rem;
+            }
+            section{
+                padding:14px 14px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="shell">
+    <main class="sheet">
+        <header class="sheet-header">
+            <div class="top-row">
+                <div class="brand">
+                    <div class="logo-circle">CS</div>
+                    <div>
+                        <div class="brand-text-title">Cars Services</div>
+                        <div class="brand-text-sub">Premium Car Rental &amp; Concierge – Agadir</div>
+                    </div>
+                </div>
+                <div class="badge">
+                    <span class="badge-dot"></span>
+                    <span>Privacy &amp; Data Safety</span>
+                </div>
+            </div>
+
+            <h1>Privacy Policy</h1>
+            <p class="subtitle">
+                How the CARS SERVICES app handles your data, communications, and privacy.
+            </p>
+
+            <div class="meta-row">
+                <div class="pill">
+                    <span></span>
+                    <span>Last updated: December&nbsp;2025</span>
+                </div>
+                <div class="pill">
+                    <span style="background:radial-gradient(circle at 30% 30%,#fee2e2,#f97316);box-shadow:0 0 8px rgba(249,115,22,.8);"></span>
+                    <span>No personal data collected</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="sheet-body">
+            <!-- Sidebar navigation -->
+            <aside class="sidebar">
+                <div class="sidebar-title">Sections</div>
+                <ul class="toc">
+                    <li><a href="#s1"><span class="idx">1</span><span>Overview</span></a></li>
+                    <li><a href="#s2"><span class="idx">2</span><span>Data Collection</span></a></li>
+                    <li><a href="#s3"><span class="idx">3</span><span>Communication</span></a></li>
+                    <li><a href="#s4"><span class="idx">4</span><span>Local Features</span></a></li>
+                    <li><a href="#s5"><span class="idx">5</span><span>Permissions</span></a></li>
+                    <li><a href="#s6"><span class="idx">6</span><span>Data Sharing</span></a></li>
+                    <li><a href="#s7"><span class="idx">7</span><span>Messages You Send</span></a></li>
+                    <li><a href="#s8"><span class="idx">8</span><span>Children</span></a></li>
+                    <li><a href="#s9"><span class="idx">9</span><span>Your Rights</span></a></li>
+                    <li><a href="#s10"><span class="idx">10</span><span>Policy Updates</span></a></li>
+                    <li><a href="#s11"><span class="idx">11</span><span>Company &amp; Contact</span></a></li>
+                </ul>
+
+                <div class="sidebar-footer">
+                    <strong>Summary:</strong> the CARS SERVICES app does not collect, store, or share your
+                    personal or sensitive data. Communication happens only through apps you choose
+                    (WhatsApp, email, Google Maps).
+                </div>
+            </aside>
+
+            <!-- Main content -->
+            <article class="content">
+                <section id="s1">
+                    <h2>1. Overview</h2>
+                    <p><strong>CARS SERVICES</strong> provides premium car rental and concierge delivery in Agadir. Vehicles you want, service you expect. Contact Kamal Azzaoui via WhatsApp, email, or Google Maps.</p>
+                    <p>The mobile app does not collect, store, or share personal or sensitive user data.</p>
+                    <div class="chips-row">
+                        <span class="chip">No account needed</span>
+                        <span class="chip">No tracking</span>
+                        <span class="chip">No analytics SDKs</span>
+                    </div>
+                </section>
+
+                <section id="s2">
+                    <h2>2. Data Collection</h2>
+                    <p>The CARS SERVICES app does not collect or process any of the following:</p>
+                    <ul>
+                        <li>Personal or contact information</li>
+                        <li>Location data or device identifiers</li>
+                        <li>Financial details or usage analytics</li>
+                        <li>Photos, media, messages, or files</li>
+                        <li>Any other sensitive categories</li>
+                    </ul>
+                    <p>No data is automatically collected by the app.</p>
+                </section>
+
+                <section id="s3">
+                    <h2>3. How Communication Works</h2>
+                    <p>You choose when to contact us through external apps. Each option opens directly on your device:</p>
+                    <p><strong>WhatsApp.</strong> Tapping the WhatsApp button opens a chat with
+                        <a href="https://wa.me/212603180679">+212 6 03 18 06 79</a>.
+                        Conversations stay inside WhatsApp and follow WhatsApp's privacy policy. The app cannot access or read your messages.
+                    </p>
+                    <p><strong>Email.</strong> Tapping an email button opens your default mail app with
+                        <a href="mailto:support@carsservicess.com">support@carsservicess.com</a>
+                        pre-filled. You decide whether to send the message, and the app never stores or copies the content.
+                    </p>
+                    <p><strong>Google Maps.</strong> "Open in Google Maps" launches our workshop location at
+                        <a href="https://maps.app.goo.gl/rHZqTNTyxKMwePFVA">2 BIS AVENUE DU PRESIDENT KENNEDY, 80000 AGADIR</a>.
+                        We do not request or access your device location.
+                    </p>
+                </section>
+
+                <section id="s4">
+                    <h2>4. Local Features</h2>
+                    <p>Everything else runs only on your device, such as:</p>
+                    <ul>
+                        <li>Trip Price Lab calculations</li>
+                        <li>Browsing vehicles, offers, and guest stories</li>
+                    </ul>
+                    <p>All calculations and selections stay local. Nothing is uploaded, stored, or transmitted.</p>
+                </section>
+
+                <section id="s5">
+                    <h2>5. Permissions</h2>
+                    <p>The app does not request or use permissions such as:</p>
+                    <ul>
+                        <li>Location or contacts</li>
+                        <li>Camera or microphone</li>
+                        <li>Storage, phone, or SMS</li>
+                    </ul>
+                    <p>No permissions are required to use the app.</p>
+                </section>
+
+                <section id="s6">
+                    <h2>6. Data Sharing</h2>
+                    <p>The app does not share data with third parties, advertisers, analytics providers, tracking partners, or external servers. We do not include analytics SDKs, advertising SDKs, or crash-reporting tools.</p>
+                </section>
+
+                <section id="s7">
+                    <h2>7. Messages You Send Voluntarily</h2>
+                    <p>If you send us a message through WhatsApp or email, we may keep it in our inbox to respond and provide service. You can request removal of any conversation by contacting us. These messages are not collected by the app; they are exchanged directly in WhatsApp or your mail app.</p>
+                </section>
+
+                <section id="s8">
+                    <h2>8. Children</h2>
+                    <p>The service is designed for adults planning travel and vehicle services. We do not knowingly collect information from children under 13.</p>
+                </section>
+
+                <section id="s9">
+                    <h2>9. Your Rights</h2>
+                    <p>If you contacted us and would like to access, correct, or delete your messages, email
+                        <a href="mailto:support@carsservicess.com">support@carsservicess.com</a>.
+                        We respond within seven business days.
+                    </p>
+                </section>
+
+                <section id="s10">
+                    <h2>10. Policy Updates</h2>
+                    <p>We may update this Privacy Policy if we add new features or if legal requirements change. The latest version will always be available inside the app and on our website.</p>
+                </section>
+
+                <section id="s11">
+                    <h2>11. Company &amp; Contact</h2>
+                    <div class="contact-block">
+                        <span><strong>Company:</strong> CARS SERVICES</span>
+                        <span><strong>D-U-N-S (R) Number:</strong> 354021609</span>
+                        <span><strong>Address:</strong> 2 BIS AVENUE DU PRESIDENT KENNEDY, 80000 AGADIR</span>
+                        <span><strong>Contact:</strong> Kamal Azzaoui</span>
+                        <span><strong>Phone &amp; WhatsApp:</strong> <a href="https://wa.me/212603180679">+212 6 03 18 06 79</a></span>
+                        <span><strong>Hours:</strong> Open 24/7</span>
+                        <span><strong>Support &amp; Privacy:</strong> <a href="mailto:support@carsservicess.com">support@carsservicess.com</a></span>
+                        <span><strong>Developer:</strong> <a href="mailto:dev@carsservicess.com">dev@carsservicess.com</a></span>
+                        <span><strong>Website:</strong> <a href="https://carsservicess.com/">carsservicess.com</a></span>
+                        <span><strong>Maps:</strong> <a href="https://maps.app.goo.gl/rHZqTNTyxKMwePFVA">Find us on Google Maps</a></span>
+                    </div>
+                    <div class="footer-note">
+                        This Privacy Policy applies only to the CARS SERVICES mobile application.
+                    </div>
+                </section>
+            </article>
+        </div>
+    </main>
+</div>
+</body>
+</html>
