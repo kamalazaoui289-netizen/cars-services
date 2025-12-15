@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="img/erik-mclean-TIEQiPp3e9A-unsplash.jpg" fetchpriority="high">
   <style>
     :root {
       --bg: #0b1626;
@@ -397,6 +398,17 @@
     .step-number { width: 36px; height: 36px; border-radius: 10px; background: rgba(248,197,55,0.12); color: var(--accent); display: grid; place-items: center; font-weight: 700; }
 
     .map-card iframe { border: none; width: 100%; height: 240px; border-radius: 12px; }
+    .map-placeholder {
+      height: 240px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.03);
+      display: grid;
+      place-items: center;
+      color: var(--muted);
+      text-align: center;
+      padding: 14px;
+    }
 
     footer { padding: 32px 0 42px; margin-top: 30px; border-top: 1px solid var(--border); background: rgba(12, 22, 35, 0.7); }
     .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px; }
@@ -435,7 +447,7 @@
     <div class="container">
       <nav>
         <a class="logo" href="#top">
-          <span class="logo-mark"><img src="img/logo.png" alt="CARS SERVICES logo"></span>
+          <span class="logo-mark"><img src="img/logo.png" alt="CARS SERVICES logo" width="46" height="46" decoding="async"></span>
           <span>CARS SERVICES</span>
         </a>
         <div class="language-switch" aria-label="Language selector">
@@ -490,7 +502,7 @@
       </div>
       <div class="hero-card">
         <span class="floating-tag" data-i18n="floatingTag">Concierge delivery</span>
-        <img src="img/erik-mclean-TIEQiPp3e9A-unsplash.jpg" alt="Luxury sedan ready for rental">
+        <img src="img/erik-mclean-TIEQiPp3e9A-unsplash.jpg" alt="Luxury sedan ready for rental" width="1600" height="1000" decoding="async" fetchpriority="high">
       </div>
     </div>
 
@@ -506,7 +518,7 @@
         <div class="grid grid-3">
 
           <div class="card">
-            <img class="fleet-img" src="img/peter-broomfield-m3m-lnR90uM-unsplash.jpg" alt="Executive sedan">
+            <img class="fleet-img" src="img/peter-broomfield-m3m-lnR90uM-unsplash.jpg" alt="Executive sedan" width="1400" height="900" loading="lazy" decoding="async">
             <h3 data-i18n="car1Title">Executive Sedan</h3>
             <div class="muted" data-i18n="car1Desc">Comfortable and refined for business travel.</div>
             <div class="pill-set">
@@ -515,7 +527,7 @@
             <div class="price" data-i18n="car1Price">From 690 MAD / day</div>
           </div>
           <div class="card">
-            <img class="fleet-img" src="img/erik-mclean-2ss_N6Rpg6o-unsplash.jpg" alt="SUV rental">
+            <img class="fleet-img" src="img/erik-mclean-2ss_N6Rpg6o-unsplash.jpg" alt="SUV rental" width="1400" height="900" loading="lazy" decoding="async">
             <h3 data-i18n="car2Title">City SUV</h3>
             <div class="muted" data-i18n="car2Desc">Spacious and agile for family weekends and coastal drives.</div>
             <div class="pill-set">
@@ -524,7 +536,7 @@
             <div class="price" data-i18n="car2Price">From 850 MAD / day</div>
           </div>
           <div class="card">
-            <img class="fleet-img" src="img/robin-le-mee-eIze9Hh0gkk-unsplash.jpg" alt="Sport car rental">
+            <img class="fleet-img" src="img/robin-le-mee-eIze9Hh0gkk-unsplash.jpg" alt="Sport car rental" width="1400" height="900" loading="lazy" decoding="async">
             <h3 data-i18n="car3Title">Sport Line</h3>
             <div class="muted" data-i18n="car3Desc">Bold styling with responsive performance for memorable arrivals.</div>
             <div class="pill-set">
@@ -533,7 +545,7 @@
             <div class="price" data-i18n="car3Price">From 1200 MAD / day</div>
           </div>
           <div class="card">
-            <img class="fleet-img" src="img/markus-spiske-IS5ypTDKZSk-unsplash.jpg" alt="Luxury SUV">
+            <img class="fleet-img" src="img/markus-spiske-IS5ypTDKZSk-unsplash.jpg" alt="Luxury SUV" width="1400" height="900" loading="lazy" decoding="async">
             <h3 data-i18n="car4Title">Luxury SUV</h3>
             <div class="muted" data-i18n="car4Desc">High clearance and comfort for Atlas getaways.</div>
             <div class="pill-set">
@@ -542,7 +554,7 @@
             <div class="price" data-i18n="car4Price">From 1300 MAD / day</div>
           </div>
           <div class="card">
-            <img class="fleet-img" src="img/norbert-buduczki-ofJFxpaXv1w-unsplash.jpg" alt="Cabriolet rental">
+            <img class="fleet-img" src="img/norbert-buduczki-ofJFxpaXv1w-unsplash.jpg" alt="Cabriolet rental" width="1400" height="900" loading="lazy" decoding="async">
             <h3 data-i18n="car5Title">Cabriolet</h3>
             <div class="muted" data-i18n="car5Desc">Enjoy Agadir sunshine with open-top elegance.</div>
             <div class="pill-set">
@@ -551,7 +563,7 @@
             <div class="price" data-i18n="car5Price">From 1400 MAD / day</div>
           </div>
           <div class="card">
-            <img class="fleet-img" src="img/campbell-3ZUsNJhi_Ik-unsplash.jpg" alt="Eco car">
+            <img class="fleet-img" src="img/campbell-3ZUsNJhi_Ik-unsplash.jpg" alt="Eco car" width="1400" height="900" loading="lazy" decoding="async">
             <h3 data-i18n="car6Title">Eco Compact</h3>
             <div class="muted" data-i18n="car6Desc">Efficient and easy to park for city errands.</div>
             <div class="pill-set">
@@ -677,9 +689,17 @@
             <p class="muted" data-i18n="visitCopy">2 BIS AVENUE DU PRÉSIDENT KENNEDY, 80000 AGADIR</p>
             <p class="muted" data-i18n="visitCompany">Company: CARS SERVICES | D-U-N-S (R) Number: 354021609</p>
             <div style="margin: 14px 0;">
-              <iframe title="CARS SERVICES location" src="https://www.google.com/maps?q=2%20BIS%20AVENUE%20DU%20PRESIDENT%20KENNEDY%20AGADIR&output=embed"></iframe>
+              <div class="map-placeholder" data-map-placeholder data-src="https://www.google.com/maps?q=2%20BIS%20AVENUE%20DU%20PRESIDENT%20KENNEDY%20AGADIR&output=embed">
+                <div>
+                  <strong data-i18n="mapPlaceholderTitle">Map loads on tap</strong>
+                  <p class="muted" data-i18n="mapPlaceholderBody">Show the live map only when you need it to keep the page fast.</p>
+                </div>
+              </div>
             </div>
-            <a class="btn btn-secondary" href="https://maps.app.goo.gl/rHZqTNTyxKMwePFVA" target="_blank" rel="noopener" data-i18n="openMaps">Open in Google Maps</a>
+            <div class="cta-group">
+              <button class="btn btn-secondary" type="button" data-map-trigger data-i18n="mapPlaceholderCta">Load map</button>
+              <a class="btn btn-secondary" href="https://maps.app.goo.gl/rHZqTNTyxKMwePFVA" target="_blank" rel="noopener" data-i18n="openMaps">Open in Google Maps</a>
+            </div>
           </div>
         </div>
       </div>
@@ -733,7 +753,7 @@
     <div class="container footer-grid">
       <div>
         <div class="logo">
-          <span class="logo-mark"><img src="img/logo.png" alt="CARS SERVICES logo small"></span>
+          <span class="logo-mark"><img src="img/logo.png" alt="CARS SERVICES logo small" width="46" height="46" decoding="async" loading="lazy"></span>
           <span>CARS SERVICES</span>
         </div>
         <p class="muted" style="margin-top: 10px;" data-i18n="footerCopy">Premium car rental and concierge delivery in Agadir. Vehicles you want, service you expect.</p>
@@ -777,6 +797,45 @@
     const fallbackAlert = 'Thank you! A concierge will confirm your booking shortly.';
     const rtlLanguages = ['ar'];
     const langButtons = document.querySelectorAll('.lang-btn');
+    const mapPlaceholder = document.querySelector('[data-map-placeholder]');
+    const mapTrigger = document.querySelector('[data-map-trigger]');
+    const mapLoadingLabel = 'Loading map...';
+    const mapLoadedLabel = 'Map loaded';
+
+    function loadMap() {
+      if (!mapPlaceholder || mapPlaceholder.dataset.loaded) return;
+      const src = mapPlaceholder.dataset.src;
+      if (!src) return;
+      const iframe = document.createElement('iframe');
+      iframe.src = src;
+      iframe.title = 'CARS SERVICES location';
+      iframe.loading = 'lazy';
+      iframe.referrerPolicy = 'no-referrer-when-downgrade';
+      iframe.setAttribute('aria-label', 'Map showing CARS SERVICES location');
+      mapPlaceholder.replaceChildren(iframe);
+      mapPlaceholder.dataset.loaded = 'true';
+      if (mapTrigger) {
+        mapTrigger.setAttribute('disabled', 'true');
+        mapTrigger.textContent = translations[currentLang]?.mapPlaceholderCta || mapLoadedLabel;
+      }
+    }
+
+    mapTrigger?.addEventListener('click', () => {
+      if (mapTrigger) mapTrigger.textContent = translations[currentLang]?.mapPlaceholderBody || mapLoadingLabel;
+      loadMap();
+    });
+
+    if (mapPlaceholder && 'IntersectionObserver' in window) {
+      const mapObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            loadMap();
+            mapObserver.disconnect();
+          }
+        });
+      }, { rootMargin: '200px' });
+      mapObserver.observe(mapPlaceholder);
+    }
 
     function applyTranslations(lang) {
       const dict = translations[lang];
